@@ -12,15 +12,34 @@ const refs = {
 
 console.log(refs);
 
-// створюємо пустий масив
-const newArray = [];
-
-// cтвор.'vj функцію, яка приймає один параметр - число
+// cтворюємо функцію, яка приймає один параметр - число
 function createBoxes(amount) {
+  const newArray = [];
 
+  for (let i = 0; i < amount; i += 1) {
+    const boxElement = document.createElement('div');
+
+    boxElement.style.backgroundColor = getRandomHexColor();
+    const boxSize = (i * 10) + 30;
+    boxElement.style.width = `${boxSize}px`;
+    boxElement.style.height = `${boxSize}px`;
+
+    newArray.push(boxElement);
+  };
+  return newArray;
 };
 
 // cтворюємо функцію, яка очищає вміст
 function destroyBoxes() {
   boxes.innerHTML = "";
 };
+
+// додавання слухача подій
+refs.btnCreate.addEventListener('click', event => {
+  const newElement = createBoxes(refs.inputValue.value);
+  boxes.append(...newElement);
+});
+
+refs.btnDestroy.addEventListener('click', event => {
+  destroyBoxes();
+});
