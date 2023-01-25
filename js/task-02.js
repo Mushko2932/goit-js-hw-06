@@ -26,5 +26,7 @@ listItem.classList.add('item');
 itemsArray.push(listItem);
 
 // додаю масив у список
-list.append(...itemsArray);
+
 });
+
+list.append(...itemsArray);

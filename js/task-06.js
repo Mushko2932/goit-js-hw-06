@@ -4,12 +4,17 @@ console.log(inputValue);
 
 // вішаємо слухача подій
 inputValue.addEventListener('blur', event => {
-    if (event.target.value.length == inputValue.getAttribute('data-length')) {
-        inputValue.classList.add('valid')
-    } else {
+    if (event.target.value.length > inputValue.dataset['length']) {
+        inputValue.classList.remove('valid');
         inputValue.classList.add('invalid');
+        
+        console.log(inputValue);
+        
+    } else {
+        inputValue.classList.remove('invalid');
+        inputValue.classList.add('valid');
+        
+        console.log(inputValue);
     };
     
 });
-
-
