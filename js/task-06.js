@@ -4,7 +4,9 @@ console.log(inputValue);
 
 // вішаємо слухача подій
 inputValue.addEventListener('blur', event => {
-    if (event.target.value.length > inputValue.dataset['length']) {
+    if (Number(inputValue.dataset['length']) !== event.target.value.length) {
+        console.log(event.target.value.length)
+        console.log(inputValue.dataset['length'])
         inputValue.classList.remove('valid');
         inputValue.classList.add('invalid');
         
@@ -18,3 +20,6 @@ inputValue.addEventListener('blur', event => {
     };
     
 });
+
+// .dataset['length']
+// .getAttribute('data-length')
